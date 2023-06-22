@@ -1,6 +1,9 @@
 import useSWR, { type SWRResponse } from "swr";
 
-export const fetcher = (url: string) => fetch(url).then((res) => res.json());
+export const fetcher = (url: string) =>
+  fetch(url, {
+    referrerPolicy: "unsafe-url",
+  }).then((res) => res.json());
 
 /** A custom hook built on top a fetch library.
  * Why? This abstraction not only makes code readable but
